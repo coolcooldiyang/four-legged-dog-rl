@@ -14,12 +14,18 @@
 
 ## 效果与验证状态
 
-**目前没有策略行走的视频。** 下面这张是模型几何校验的实测输出，不是策略效果：
+**目前没有策略行走的视频。** 下面是模型几何校验的实测输出，不是策略效果：
 
-| 文件 | 内容 |
-| --- | --- |
-| [模型几何诊断](docs/assets/cad_urdf_diagnosis.png) | 零位下四脚位置、象限判定、高度分布 |
-| [仿真对比](docs/assets/cad_urdf_sim_compare.png) | 自由落体 4 s 前后的姿态与质心轨迹 |
+**零位下四脚位置与象限判定**（俯视 / 侧视 / 判定表）：
+
+![模型几何诊断](docs/assets/cad_urdf_diagnosis.png)
+
+**自由落体 4 s 前后的姿态对比与质心轨迹**：
+
+![仿真对比](docs/assets/cad_urdf_sim_compare.png)
+
+这组图用于排查一个 CAD 导出的 URDF：四只脚全部落在同一侧、两只脚悬空 0.43 m，
+仿真中翻倒 173°。诊断过程见 [docs/ALL_TRAINING_AND_PITFALLS.md](docs/ALL_TRAINING_AND_PITFALLS.md)。
 
 **两条训练线的验证状态：**
 
