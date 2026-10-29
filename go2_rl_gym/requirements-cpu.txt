@@ -1,0 +1,33 @@
+# CPU-only 依赖清单（本机无 NVIDIA GPU / CUDA，跳过 isaacgym 与 numpy==1.20）
+# 用法：
+#   python3 -m venv --without-pip .venv && curl -fsSL https://bootstrap.pypa.io/get-pip.py | .venv/bin/python
+#   .venv/bin/pip install -r requirements-cpu.txt
+#   .venv/bin/pip install -e ./rsl_rl --no-deps
+#   .venv/bin/pip install -e . --no-deps
+#
+# torch 需从 CPU 专用索引安装，避免拉取 CUDA 大包：
+#   .venv/bin/pip install --index-url https://download.pytorch.org/whl/cpu torch==2.3.1
+
+# --- 强化学习 / 计算 ---
+torch==2.3.1+cpu
+numpy==1.26.4 ; python_version >= "3.10"
+# 原 setup.py 钉死 numpy==1.20，但该版本没有 cp310 wheel；Python 3.8 + isaacgym 环境请用 numpy==1.20
+
+# --- Mujoco Sim2Sim ---
+mujoco==3.2.3
+pygame==2.6.1
+imageio==2.37.0
+imageio-ffmpeg==0.6.0
+matplotlib==3.9.4
+PyYAML==6.0.2
+
+# --- 模型导出 / 日志 ---
+onnx==1.17.0
+tensorboard==2.14.0
+google-auth==2.45.0
+
+# --- 其它 ---
+tqdm==4.67.1
+
+# 说明：isaacgym 无法从 PyPI 安装，且强依赖 NVIDIA GPU，本机已跳过。
+#      unitree_sdk2py（真机部署）面向机器人端 Jetson，不在本 x86 开发机安装。

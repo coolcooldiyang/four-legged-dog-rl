@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 训练产物（checkpoint 不随仓库发布，只放 exported 策略）
+logs/
+*.mp4
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+
+# 备份文件
+*.bak
+*.bak-*
+*.orig
+
+# MuJoCo
+MUJOCO_LOG.TXT
